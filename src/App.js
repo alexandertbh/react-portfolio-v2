@@ -1,7 +1,23 @@
-import logo from "./logo.svg";
 import "./App.css";
-
+import { useEffect, useState } from "react";
+//TODO: fetch works but useState is running into issues
 function App() {
+  const [gitData, setGitData] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, []);
+  //using github api to import projects
+  // const projectData = {};
+  function fetchData() {
+    fetch("https://api.github.com/users/alexandertbh/repos")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data:", data);
+        setGitData(data);
+        console.log(gitData);
+      })
+      .catch((error) => console.log(error));
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -23,7 +39,13 @@ function App() {
           and move info fulltime development and analytics.
         </p>
       </section>
-      <section className="projects"></section>
+      <section className="projects">
+        <ul>
+          {/* {gitData.map((project) => (
+            <li>{project}</li>
+          ))} */}
+        </ul>
+      </section>
       <section className="resume">{/* add pdf of resume */}</section>
       <section className="contact-me">
         <h3> Contact Me</h3>
