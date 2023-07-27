@@ -1,5 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import Project from "./components/Project";
+import resume from "./assets/resume.pdf";
 //TODO: fetch works but useState is running into issues
 function App() {
   const [gitData, setGitData] = useState([]);
@@ -14,10 +16,11 @@ function App() {
       .then((data) => {
         console.log("data:", data);
         setGitData(data);
-        console.log(gitData);
+        console.log("gitData:", gitData);
       })
       .catch((error) => console.log(error));
   }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -40,13 +43,24 @@ function App() {
         </p>
       </section>
       <section className="projects">
-        <ul>
-          {/* {gitData.map((project) => (
-            <li>{project}</li>
-          ))} */}
+        <ul className="projects-ul">
+          {gitData &&
+            gitData.map((project) => (
+              <Project key={project.id} project={project} />
+            ))}
         </ul>
       </section>
-      <section className="resume">{/* add pdf of resume */}</section>
+      <section className="resume">
+        <object
+        className="resume-obj"
+          data={resume}
+          type="application/pdf"
+          width="100%"
+          height="100%"
+        ></object>
+
+        {/* add pdf of resume */}
+      </section>
       <section className="contact-me">
         <h3> Contact Me</h3>
         <form>

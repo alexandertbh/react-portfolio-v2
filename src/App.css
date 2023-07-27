@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 0em;
 
 }
 
@@ -8,6 +9,7 @@
   align-items: center;
   border-style: solid;
   border-color:red;
+  background-color: grey;
 
 }
 
@@ -15,23 +17,45 @@
   min-height: 10em;
   border-style: solid;
   border-color:red;
+  background-color: slategray;
 }
 
 .projects {
   min-height: 15em;
   border-style: solid;
   border-color:red;
+  background-color: olivedrab;
+
+
 }
 .resume {
-  min-height: 15em;
+  min-height: 40em;
   border-style: solid;
   border-color:red;
+  background-color: slategray;
+}
+.resume-obj {
+  min-height: 70em;
 }
 
 .contact-me{
   min-height: 15em;
   border-style: solid;
   border-color:red;
+  background-color: lightseagreen;
 }
 
+.project{
+  margin: 3em;
+  border-style:solid;
+  border-color: black;
+  flex-grow: 1;
+  background-color: lightgrey;
+}
 
+.projects-ul{
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 15em;
+}
